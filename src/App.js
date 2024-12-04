@@ -13,6 +13,8 @@ import View from './comp/login/viewLogin'
 
 import Ax1 from './comp/ax/ax01'
 
+import Ref from './comp/inp/ref01'
+
 function App() {
   return (
     <div className="App">
@@ -27,6 +29,7 @@ function App() {
 
           <Route path={"/inp1"} element={<Inp1 />} />
           <Route path={"/out1"} element={<Out1 />} />
+          <Route path={"/ref1"} element={<Ref />} />
 
           <Route path={"/ax1"} element={<Ax1 />} />
         </Routes>
@@ -48,6 +51,7 @@ function Home() {
 
       <h4>Axios</h4>
       <Link to="/ax1">Axios 사용</Link> <br />
+      <Link to="/ref1">Ref 사용</Link> <br />
     </div>
   )
 }
