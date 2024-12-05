@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {memberIdCehck, areaList, memberLogin, memberRegist} from '../api/member';
+import {memberIdCehck, areaList, memberRegist} from '../api/member';
 import { useNavigate } from "react-router-dom";
 
 function Study() {

@@ -11,6 +11,7 @@ import Ax1 from './comp/ax/ax01'
 import Ref from './comp/inp/ref01'
 import Join1 from './comp/login2/join'
 import Login1 from './comp/login2/login2'
+import ProItemList from './comp/login2/ItemList'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path={"/ax1"} element={<Ax1 />} />
           <Route path={"/join1"} element={<Join1 />} />
           <Route path={"/login1"} element={<Login1 />} />
+          <Route path={"/itemList"} element={<ProItemList />} />
         </Routes>
       </BrowserRouter>
     </div>
