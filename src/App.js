@@ -10,6 +10,8 @@ import View from './comp/login/viewLogin'
 import Ax1 from './comp/ax/ax01'
 import Ref from './comp/inp/ref01'
 import Join1 from './comp/login2/join'
+import Login1 from './comp/login2/login2'
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route path={"/ref1"} element={<Ref />} />
           <Route path={"/ax1"} element={<Ax1 />} />
           <Route path={"/join1"} element={<Join1 />} />
+          <Route path={"/login1"} element={<Login1 />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -48,6 +51,7 @@ function Home() {
       <Link to="/ax1">Axios 사용</Link> <br />
       <Link to="/ref1">Ref 사용</Link> <br />
       <Link to="/join1">중복체크</Link> <br />
+      <Link to="/login1">로그인하기</Link> <br />
     </div>
   )
 }

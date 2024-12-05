@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import {memberIdCehck, areaList, memberLogin} from '../api/member';
+import { useEffect, useRef, useState } from "react";
+import {memberIdCehck, areaList, memberLogin, memberRegist} from '../api/member';
 import { useNavigate } from "react-router-dom";
 
 function Study() {
@@ -11,11 +11,13 @@ function Study() {
     const [userGender, setGender] = useState('M');
     const [userBirth, setBirth] = useState('');
     const [area, setArea] = useState(''); //지역 값
-
     const [aList, setAlist] = useState([]); //지역 리스트
 
-    const [inputId, setUserId] = useState('');
-    const [inputPw, setUserPw] = useState('');
+    const [idChk, setIdc] = useState('') //아이디 중복체크
+
+    const idRef = useRef();
+
+    
     const navigate = useNavigate();
 
 
@@ -64,6 +66,12 @@ function Study() {
      * 회원가입
      */
     function joinAction() {
+
+        if(userId.trim().length == 0 || userId !== idChk) {
+            alert('아이디 확인을 해주세요');
+            return;
+        }
+
         //유효성 검사
         const obj = {
             'userId': userId,
@@ -74,6 +82,15 @@ function Study() {
             'gender': userGender,
             'areaIdx': area,
         }
+
+        console.log(obj);
+        memberRegist(obj)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(`err : ${err}`);
+        })
     }
 
     return(
@@ -83,6 +100,7 @@ function Study() {
 
             <input type="text"
             placeholder="ID" 
+            ref={idRef}
             value={userId}
             onChange={
                 e=>  {
@@ -101,6 +119,8 @@ function Study() {
                     check.then(res => {
                         console.log('===Good===')
                         console.log(res);
+                        setIdc(userId);
+                        idRef.current.disabled = true;
                     })
 
                     //실패
@@ -153,28 +173,7 @@ function Study() {
             onClick={joinAction}/>
 
             <hr></hr>
-{/* 
-            <h1>Login</h1>
-            <input 
-            type="text"
-            placeholder="ID"
-            value={inputId}
-            onChange={e=> {
-                setUserId(e.target.value);
-            }}
-            /> <br/> <br/>
-            <input 
-            type="password"
-            placeholder="PW"
-            value={inputPw}
-            onChange={e=> {
-                setUserPw(e.target.value);
-            }}
-            /> <br/> <br/>
-            <input 
-            type="button"
-            value='Login'
-            onClick={userLogin} /> */}
+
             
         </div>
     );
