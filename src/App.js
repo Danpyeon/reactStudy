@@ -54,6 +54,7 @@ function Home() {
       <Link to="/ref1">Ref 사용</Link> <br />
       <Link to="/join1">회원가입</Link> <br />
       <Link to="/login1">로그인하기</Link> <br />
+      <Link to="/itemList">Item List</Link> <br />
     </div>
   )
 }

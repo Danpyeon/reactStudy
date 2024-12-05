@@ -29,7 +29,7 @@ export default function Study() {
             const data = res.data;
             if(data.code === '200' && data.data === 'Y') {
                 console.log('로그인 성공')
-                localStorage.setItem('userId', userId);
+                localStorage.setItem('userId', obj.userId);
                 localStorage.setItem('auto', 'random UUID JWT');
                 navigate('/itemList');
             } else {
