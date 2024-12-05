@@ -50,7 +50,7 @@ function Home() {
       <h4>Axios</h4>
       <Link to="/ax1">Axios 사용</Link> <br />
       <Link to="/ref1">Ref 사용</Link> <br />
-      <Link to="/join1">중복체크</Link> <br />
+      <Link to="/join1">회원가입</Link> <br />
       <Link to="/login1">로그인하기</Link> <br />
     </div>
   )

@@ -1,7 +1,20 @@
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Study() {
 
-    const [inputId, setUserId] = useState('');
-    const [inputPw, setUserPw] = useState('');
+    const idRef = useRef('');
+    const pwRef = useRef('');
+
+    const navigate = useNavigate();
+
+    const loginAction = () => {
+        console.log('test')
+
+        const idValue = idRef.current.value;
+        const pwValue = pwRef.current.value;
+        
+    }
 
     return(
         <div>
@@ -9,23 +22,32 @@ export default function Study() {
             <input 
             type="text"
             placeholder="ID"
-            value={inputId}
-            onChange={e=> {
-                setUserId(e.target.value);
-            }}
-            /> <br/> <br/>
+            ref={idRef}/>
+            
+             <br/> <br/>
+
             <input 
             type="password"
             placeholder="PW"
-            value={inputPw}
-            onChange={e=> {
-                setUserPw(e.target.value);
-            }}
-            /> <br/> <br/>
+            ref={pwRef}/> 
+
+            <br/> <br/>
+
             <input 
             type="button"
             value='Login'
-            onClick={userLogin} />
+            onClick={loginAction} />
+
+            <br/> <br/>
+
+            <input 
+            type="button"
+            value='회원가입'
+            onClick={
+                () => {
+                    navigate('/join1');
+                }
+            } />
         </div>
         
     )

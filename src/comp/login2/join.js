@@ -26,23 +26,23 @@ function Study() {
      /**
      * 로그인
      */
-    function userLogin() {
-        console.log('===User Login===')
+    // function userLogin() {
+    //     console.log('===User Login===')
 
-        let obj = new Object;
-        obj.userId = inputId;
-        obj.userPw = inputPw;
+    //     let obj = new Object;
+    //     obj.userId = inputId;
+    //     obj.userPw = inputPw;
 
-        const checkuser = memberLogin(obj);
+    //     const checkuser = memberLogin(obj);
 
-        checkuser.then(res => {
-            console.log(res)
-            if(res.data.code === '200' && res.data.data === 'Y') {
-                console.log('로그인 성공');
-                navigate('/'); //메인화면으로 보내버림
-            } 
-        })
-    }
+    //     checkuser.then(res => {
+    //         console.log(res)
+    //         if(res.data.code === '200' && res.data.data === 'Y') {
+    //             console.log('로그인 성공');
+    //             navigate('/'); //메인화면으로 보내버림
+    //         } 
+    //     })
+    // }
 
      /**
      * 지역코드
@@ -171,6 +171,12 @@ function Study() {
             <input type="button" 
             value='회원가입' 
             onClick={joinAction}/>
+            <br/> <br/>
+            <input type="button" 
+            value='로그인' 
+            onClick={() => {
+                navigate('/login1');
+            }}/>
 
             <hr></hr>
 
