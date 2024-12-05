@@ -18,3 +18,12 @@ export const memberIdCehck = (obj) => {
 export const areaList = () => {
     return api.get('/area/list');
 }
+
+export const memberLogin = (obj) => {
+    return api.post('member/login', JSON.stringify(obj),
+    {
+        headers: {
+            'Content-Type' : 'application/json'
+        }
+    })
+}
