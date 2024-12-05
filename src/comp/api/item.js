@@ -5,3 +5,14 @@ export const itemList = (param) => {
         params: param
     });
 }
+
+/**
+ * 추천 아이템
+ * @param {*} obj 
+ * @returns 
+ */
+export const itemGood = (obj) => {
+    return api.get('/item/good', {
+        params: obj
+    });
+}
