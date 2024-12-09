@@ -6,11 +6,15 @@ export default function Study() {
 
     const [getBoardList, setList] = useState([]);
 
+    const [boardKeyword, setKeyword] = useState('');
+
+    const [op, setOp] = useState('1')
+
     const navigate = useNavigate();
 
     //Board List 불러와서 담아두기
-    function boardListGet() {
-        boardList()
+    function boardListGet(searchB) {
+        boardList(searchB)
         .then(res => {
             console.log(res.data.data);
             if(res.data.code === '200') {
@@ -35,6 +39,14 @@ export default function Study() {
         console.log(boardIdx)
         localStorage.setItem('boardNum', boardIdx);
         navigate('/boardView')
+    }
+
+    function searchBoard() {
+        let obj = new Object();
+        if (op === '1') {
+            obj.created = boardKeyword;
+            boardList(obj);
+        }
     }
 
 
@@ -88,6 +100,38 @@ export default function Study() {
                 <p style={{ textAlign: "center", color: "#666" }}>게시글이 없습니다.</p>
             )}
 
+                    <input
+                    type='text'
+                    placeholder='Search'
+                    value={boardKeyword}
+                    onChange={
+                        e=>setKeyword(e.target.value)
+                    }/>
+
+                    <select style={{
+                        marginLeft: '16px'
+                    }}
+                    onChange={e => setOp(e.target.value)}
+                    >
+                        <option value='1'>글쓴이</option>
+                        <option value='2'>제목</option>
+                    </select>
+
+                    <button
+                        onClick={() => searchBoard()}
+                        style={{
+                            marginTop: "20px",
+                            padding: "10px 20px",
+                            border: "none",
+                            backgroundColor: "#007BFF",
+                            color: "white",
+                            borderRadius: "4px",
+                            cursor: "pointer",
+                            marginLeft: '16px'
+                        }}
+                    >
+                        검색
+                    </button>
 
                     <button
                         onClick={() => navigate('/boardRegist')}

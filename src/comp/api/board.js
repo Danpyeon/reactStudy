@@ -6,8 +6,10 @@ import api from "../ax/axiosSetting"
  * @param {*} param 
  * @returns 
  */
-export const boardList = () => {
-    return api.get('/board/list');
+export const boardList = (obj) => {
+    return api.get('/board/list' , {
+        params: obj
+    });
 }
 
 /**
