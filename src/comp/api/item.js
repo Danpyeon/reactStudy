@@ -16,3 +16,12 @@ export const itemGood = (obj) => {
         params: obj
     });
 }
+
+/**
+ * 카테고리 분류
+ */
+export const itemCateIdx = (param) => {
+    return api.get('/item/all', {
+        params: param
+    });
+}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { itemList, itemGood } from '../api/item';
+import { itemList, itemGood, itemCateIdx } from '../api/item';
 import ItemArea from '../login2/ItemArea';
 
 export default function Study() {
@@ -17,12 +17,13 @@ export default function Study() {
 
     function getItemList(searchItem) {
         itemList(searchItem)
+        itemCateIdx(searchItem)
         .then(res => {
             console.log(res.data.data);
             if(res.data.code === '200') {
                 setItems(res.data.data);
             }
-        })
+        }) 
     }
 
     useEffect(() => {
@@ -35,8 +36,16 @@ export default function Study() {
         searchbtn();
     }, [keyword]);
 
+
+    //카테고리 검색
     function categoryNum(num) {
         console.log('num : ', num);
+
+        let param = new Object();
+        param.categoryIdx = num;
+        
+        getItemList(param);
+
     }
 
     /** 검색 버튼 */
@@ -60,6 +69,7 @@ export default function Study() {
             console.log(res);
         })
     }
+
 
 
     return(
@@ -95,7 +105,7 @@ export default function Study() {
             {/** Item List */}
             {items.map(
                 (item, index) => (
-                    <ItemArea item={item} index={index} onGoodUp={
+                    <ItemArea key={index} item={item} index={index} onGoodUp={
                         (idx) => {
                             console.log(`부모 : ${idx}`);
                             const copy = items.copy;

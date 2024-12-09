@@ -86,7 +86,8 @@ function Study() {
         console.log(obj);
         memberRegist(obj)
         .then(res => {
-            console.log(res);
+            alert('로그인 성공')
+            window.history.back();
         })
         .catch(err => {
             console.log(`err : ${err}`);

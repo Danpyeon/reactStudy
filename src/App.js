@@ -12,6 +12,11 @@ import Ref from './comp/inp/ref01'
 import Join1 from './comp/login2/join'
 import Login1 from './comp/login2/login2'
 import ProItemList from './comp/login2/ItemList'
+import BoardLogin1 from './comp/board/board_login'
+import BoardMain from './comp/board/board_main'
+import BoardRegist from './comp/board/board_regist'
+import BoardView from './comp/board/board_view'
+import BoardModify from './comp/board/board_modify'
 
 
 function App() {
@@ -32,6 +37,11 @@ function App() {
           <Route path={"/join1"} element={<Join1 />} />
           <Route path={"/login1"} element={<Login1 />} />
           <Route path={"/itemList"} element={<ProItemList />} />
+          <Route path={"/boardLogin"} element={<BoardLogin1 />} />
+          <Route path={"/boardMain"} element={<BoardMain />} />
+          <Route path={"/boardRegist"} element={<BoardRegist />} />
+          <Route path={"/boardView"} element={<BoardView />} />
+          <Route path={"/boardModify"} element={<BoardModify />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -55,6 +65,9 @@ function Home() {
       <Link to="/join1">회원가입</Link> <br />
       <Link to="/login1">로그인하기</Link> <br />
       <Link to="/itemList">Item List</Link> <br />
+
+      <h4>Board</h4>
+      <Link to="/boardLogin">게시판 로그인</Link> <br />
     </div>
   )
 }
