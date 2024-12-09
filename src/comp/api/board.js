@@ -46,6 +46,11 @@ export const deleteBoard = (obj) => {
     })
 }
 
+/**
+ * 수정하기
+ * @param {} obj 
+ * @returns 
+ */
 export const modifyBoard = (obj) => {
     return api.post('/board/modify', JSON.stringify(obj),{
         headers: {
@@ -54,6 +59,11 @@ export const modifyBoard = (obj) => {
     })
 }
 
+/**
+ * 추천하기
+ * @param {*} obj 
+ * @returns 
+ */
 export const boardGoodUp = (obj) => {
     return api.post('/board/good', JSON.stringify(obj),{
         headers: {

@@ -35,6 +35,13 @@ export default function Study() {
         localStorage.removeItem('boardNum');
     }, [])
 
+    /**
+     * search 변화 감지
+     */
+    useEffect(() => {
+        searchBoard()
+    }, [boardKeyword])
+
     function findBoard(boardIdx) {
         console.log(boardIdx)
         localStorage.setItem('boardNum', boardIdx);
@@ -42,11 +49,19 @@ export default function Study() {
     }
 
     function searchBoard() {
-        let obj = new Object();
+        let obj = {};
         if (op === '1') {
             obj.created = boardKeyword;
-            boardList(obj);
+        } else if(op === '2') {
+            obj.keyword = boardKeyword;
+        } else if(op === '3') {
+            //split으로 키워드 분리 | 제목 + 글쓴이 순서로 검색해야지만 작동 글쓴이 먼저 입력하면 작동 X 
+            const [author, title] = boardKeyword.split(" ");
+            obj.keyword = author || ""; 
+            obj.created = title || ""; 
+            console.log(obj)
         }
+        boardListGet(obj);
     }
 
 
@@ -115,6 +130,7 @@ export default function Study() {
                     >
                         <option value='1'>글쓴이</option>
                         <option value='2'>제목</option>
+                        <option value='3'>제목 + 글쓴이</option>
                     </select>
 
                     <button
