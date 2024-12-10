@@ -40,7 +40,7 @@ export default function Study() {
     return (
         <div style={styles.container}>
             <div style={styles.form}>
-                <h1 style={styles.header}>게시글 작성</h1>
+                <h1 style={styles.header}>게시글 수정</h1>
                 <div style={styles.field}>
                     <label style={styles.label}>제목</label>
                     <input
