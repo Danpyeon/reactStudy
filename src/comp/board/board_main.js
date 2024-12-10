@@ -56,6 +56,7 @@ export default function Study() {
             obj.keyword = boardKeyword;
         } else if(op === '3') {
             //split으로 키워드 분리 | 제목 + 글쓴이 순서로 검색해야지만 작동 글쓴이 먼저 입력하면 작동 X 
+            //제목과 글쓴이 모두 일치해야만 작동 
             const [author, title] = boardKeyword.split(" ");
             obj.keyword = author || ""; 
             obj.created = title || ""; 
