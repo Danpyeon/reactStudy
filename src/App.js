@@ -17,6 +17,7 @@ import BoardMain from './comp/board/board_main'
 import BoardRegist from './comp/board/board_regist'
 import BoardView from './comp/board/board_view'
 import BoardModify from './comp/board/board_modify'
+import Red01 from './comp/red/Red01'
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path={"/boardRegist"} element={<BoardRegist />} />
           <Route path={"/boardView"} element={<BoardView />} />
           <Route path={"/boardModify"} element={<BoardModify />} />
+          <Route path={"/red01"} element={<Red01 />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -68,6 +70,9 @@ function Home() {
 
       <h4>Board</h4>
       <Link to="/boardLogin">게시판 로그인</Link> <br />
+
+      <h4>Red</h4>
+      <Link to="red01">Reducer 01</Link>
     </div>
   )
 }
